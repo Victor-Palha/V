@@ -5,7 +5,7 @@ export function Hello(){
         <section className="flex flex-col gap-5 items-center">
             <h2 className="text-3xl text-white">
                 <span className="text-brand1 text-sm font-ibm">&lt;h1&gt;</span> <br />
-                Hello There! <br />
+                Hi, <br />
                 <span className="font-bold text-brand1">I'm Victor Palha</span>, <br />
                 Full-stack Developer <br />
                 <span className="text-brand1 text-sm font-ibm">&lt;/h1&gt;</span>
@@ -21,7 +21,7 @@ export function Hello(){
             </p>
 
             <div className="flex items-center gap-4 text-brand1 font-ibm">
-                <h3 className="text-4xl">Let's talk</h3>
+                <h3 className="text-4xl font-semibold">Let's talk</h3>
                 <div className="p-2 rounded-full bg-gray1">
                     <EnvelopeSimple size={30} className="text-brand1"/>
                 </div>

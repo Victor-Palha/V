@@ -2,11 +2,11 @@ import { MouseSimple } from "@phosphor-icons/react";
 
 type TitleProps = {
     title: string;
-    subtitle: string;
+    subtitle?: string;
 }
 export function Title ({ title, subtitle }: TitleProps) {
   return (
-    <section className="flex flex-col items-center justify-center bg-bg1 text-white font-sans">
+    <section className="flex flex-col items-center justify-center text-white font-sans">
 
       {/* Line connecting Module Title and Content */}
       <div className="flex flex-col items-center mt-5">
