@@ -1,4 +1,5 @@
 import {colors} from "./src/styles/colors"
+import {fonts} from "./src/styles/fonts"
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -7,7 +8,8 @@ export default {
   ],
   theme: {
     extend: {
-      colors: colors
+      colors: colors,
+      fontFamily: fonts
     },
   },
   plugins: [],

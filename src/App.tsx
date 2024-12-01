@@ -1,7 +1,9 @@
-import { Button } from "./components/Button";
+import { Title } from "./components/Title";
 
 export function App() {
   return (
-    <Button text="Click me" variant="secondary" onClick={() => alert("clicked")} />
+    <>  
+    <Title title="Projects" subtitle="somebody one told me the world is..."/>
+    </>
   )
 }
