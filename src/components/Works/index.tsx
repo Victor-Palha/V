@@ -1,6 +1,16 @@
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Title } from "../Title";
 import { useState } from "react";
+import project1 from "../../assets/projects/ashchat.png";
+import project2 from "../../assets/projects/ashdrive.png";
+import project3 from "../../assets/projects/linksaver.png";
+import project4 from "../../assets/projects/medieval-client.png";
+import project5 from "../../assets/projects/aspop.png";
+import project6 from "../../assets/projects/coffeDelivery.png";
+import project7 from "../../assets/projects/YT-AI.png";
+import project8 from "../../assets/projects/bionama.png";
+import project9 from "../../assets/projects/dtMoney.png";
+import project10 from "../../assets/projects/IWeather.png";
 
 type Project = {
   id: number;
@@ -14,61 +24,61 @@ const projects: Project[] = [
     id: 1,
     name: "Ash Chat",
     url: "https://github.com/Victor-Palha/AshChat",
-    image: "/src/assets/projects/ashchat.png",
+    image: project1,
   },
   {
     id: 2,
     name: "Ash Drive",
     url: "https://github.com/Victor-Palha/ash-drive",
-    image: "/src/assets/projects/ashdrive.png",
+    image: project2,
   },
   {
     id: 3,
     name: "Link Saver",
     url: "https://github.com/Victor-Palha/linkSaverNative",
-    image: "/src/assets/projects/linksaver.png",
+    image: project3,
   },
   {
     id: 4,
     name: "Medieval Tavern",
     url: "https://medieval-tavern.onrender.com/",
-    image: "/src/assets/projects/medieval-client.png",
+    image: project4
   },
   {
     id: 5,
     name: "Aspop",
     url: "https://aspop-pa.com",
-    image: "/src/assets/projects/aspop.png",
+    image: project5
   },
   {
     id: 6,
     name: "Coffe Delivery",
     url: "https://coffe-delivery-r8e9.onrender.com/",
-    image: "/src/assets/projects/coffeDelivery.png",
+    image: project6
   },
   {
     id: 7,
     name: "YT-AI",
     url: "https://github.com/Victor-Palha/Youtube-Transcription-AI",
-    image: "/src/assets/projects/YT-AI.png",
+    image: project7
   },
   {
     id: 8,
     name: "Bionama",
     url: "https://bionama.onrender.com/",
-    image: "/src/assets/projects/bionama.png",
+    image: project8
   },
   {
     id: 9,
     name: "dtMoney",
     url: "https://github.com/Victor-Palha/dt-money-api",
-    image: "/src/assets/projects/dtMoney.png",
+    image: project9
   },
   {
     id: 10,
     name: "IWeather",
     url: "https://victor-palha.github.io/weather/",
-    image: "/src/assets/projects/IWeather.png",
+    image: project10
   },
 ];
 
