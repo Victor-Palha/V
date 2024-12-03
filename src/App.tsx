@@ -4,6 +4,7 @@ import { Hello } from "./components/Hello";
 import { Over } from "./components/Over";
 import { About } from "./components/About";
 import { Skills } from "./components/Skills";
+import { Works } from "./components/Works";
 
 
 export function App() {
@@ -19,6 +20,7 @@ export function App() {
     </div>
     <About/>
     <Skills/>
+    <Works/>
     </>
   )
 }
