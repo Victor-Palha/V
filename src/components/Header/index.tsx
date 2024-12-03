@@ -9,7 +9,6 @@ export function Header(){
             </h1>
 
             <nav className="flex gap-2">
-                <a href="/">Home</a>
                 <a href="https://victor-palha.github.io/">Blog</a>
             </nav>
         </header>

@@ -5,6 +5,7 @@ import { Over } from "./components/Over";
 import { About } from "./components/About";
 import { Skills } from "./components/Skills";
 import { Works } from "./components/Works";
+import { Footer } from "./components/Footer";
 
 
 export function App() {
@@ -21,6 +22,7 @@ export function App() {
     <About/>
     <Skills/>
     <Works/>
+    <Footer/>
     </>
   )
 }
