@@ -84,33 +84,35 @@ export function Works() {
   };
 
   return (
-    <section className="relative py-10 px-6 text-center text-white bg-bg2 bg-[url('/src/assets/Works.png')]">
+    <section className="relative pb-32 py-10 px-4 sm:px-6 text-center text-white bg-bg2 bg-[url('/src/assets/Works.png')] bg-cover">
       {/* Título */}
       <Title title="Works" subtitle="I had the pleasure of working with these awesome projects" />
 
       {/* Carrossel */}
-      <div className="flex items-center justify-center gap-6 relative">
+      <div className="flex items-center justify-center gap-4 sm:gap-6 relative ">
         {/* Botão Esquerdo */}
         <button
           onClick={handlePrev}
-          className="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-gray-700"
+          className="w-8 h-8 flex left-0 absolute md:relative items-center justify-center bg-gray-800 rounded-full hover:bg-gray-700"
         >
-          <FaArrowLeft size={16} color="white" />
+          <FaArrowLeft size={14} color="white" />
         </button>
 
         {/* Projeto Atual */}
-        <div className="rounded-lg shadow-lg p-4 flex flex-col items-center justify-between text-center">
+        <div className="max-w-md max-h-64 p-4 flex flex-col items-center text-center">
           <img
             src={projects[currentIndex].image}
             alt={projects[currentIndex].name}
-            className="object-cover rounded-md mb-4"
+            className="w-full h-64 object-cover rounded-md mb-4"
           />
-          <h3 className="text-lg font-bold text-teal-400">{projects[currentIndex].name}</h3>
+          <h3 className="text-lg sm:text-xl font-bold text-teal-400">
+            {projects[currentIndex].name}
+          </h3>
           <a
             href={projects[currentIndex].url}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-teal-400 text-black py-2 px-4 rounded-md hover:bg-teal-300"
+            className="mt-4 bg-teal-400 text-black py-2 px-4 rounded-md hover:bg-teal-300 text-sm sm:text-base"
           >
             View Project
           </a>
@@ -119,9 +121,9 @@ export function Works() {
         {/* Botão Direito */}
         <button
           onClick={handleNext}
-          className="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-gray-700"
+          className="w-8 h-8 flex right-0 absolute md:relative items-center justify-center bg-gray-800 rounded-full hover:bg-gray-700"
         >
-          <FaArrowRight size={16} color="white" />
+          <FaArrowRight size={14} color="white" />
         </button>
       </div>
     </section>

@@ -23,7 +23,7 @@ export function Hello(){
             <div className="flex items-center gap-4 text-brand1 font-ibm">
                 <h3 className="text-4xl font-semibold">Let's talk</h3>
                 <div className="p-2 rounded-full bg-gray1">
-                    <EnvelopeSimple size={30} className="text-brand1"/>
+                    <EnvelopeSimple onClick={() => window.location.href = 'mailto:jv.palha@gmail.com'} size={30} className="text-brand1"/>
                 </div>
             </div>
         </section>

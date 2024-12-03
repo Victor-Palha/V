@@ -13,7 +13,7 @@ export function App() {
     <>
     <div className="px-6 bg-bg1">  
       <Header/>
-      <main className="mt-10 flex flex-col gap-16 pb-14">
+      <main className="mt-10 flex flex-col md:flex-row md:flex-wrap gap-16 pb-14">
         <Card/>
         <Hello/>
         <Over/>
