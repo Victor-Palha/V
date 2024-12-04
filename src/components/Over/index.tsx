@@ -6,7 +6,7 @@ export function Over(){
                 <p className="font-ibm text-2xl">Programming <br /> Language</p>
             </div>
             <div className="flex gap-4 text-white items-center">
-                <span className="text-brand1 text-5xl">10</span>
+                <span className="text-brand1 text-5xl">13</span>
                 <p className="font-ibm text-2xl">Development <br /> Tools</p>
             </div>
             <div className="flex gap-4 text-white items-center">

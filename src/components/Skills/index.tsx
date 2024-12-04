@@ -1,5 +1,5 @@
 import { BiLogoJavascript, BiLogoTypescript } from "react-icons/bi";
-import { SiElixir, SiPython, SiPhoenixframework, SiReact, SiFastify, SiNestjs, SiGraphql, SiGit, SiDocker, SiAmazon, SiLinux, SiKubernetes } from "react-icons/si";
+import { SiElixir, SiPython, SiPhoenixframework, SiReact, SiFastify, SiNestjs, SiGraphql, SiGit, SiDocker, SiAmazon, SiLinux, SiKubernetes, SiPostgresql, SiMongodb, SiRedis } from "react-icons/si";
 import { Title } from "../Title";
 import { Icons } from "./Icons";
 
@@ -25,6 +25,9 @@ export function Skills() {
           <Icons title="AWS" color="aws" icon={<SiAmazon color="white" size={30} />} />
           <Icons title="Linux" color="linux" icon={<SiLinux color="white" size={30} />} />
           <Icons title="Kubernetes" color="kubernetes" icon={<SiKubernetes color="white" size={30} />} />
+          <Icons title="Postgress" color="postgress" icon={<SiPostgresql color="white" size={30} />} />
+          <Icons title="MongoDB" color="mongodb" icon={<SiMongodb color="white" size={30} />} />
+          <Icons title="Redis" color="redis" icon={<SiRedis color="white" size={30} />} />
         </div>
       </section>
     </div>

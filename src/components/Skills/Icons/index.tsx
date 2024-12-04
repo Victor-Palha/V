@@ -15,6 +15,9 @@ const COLORS = {
     aws: "bg-[#ff8e05]",
     linux: "bg-[#ffb300]",
     kubernetes: "bg-[#316de6]",
+    postgress: "bg-[#336791]",
+    mongodb: "bg-[#13aa52]",
+    redis: "bg-[#d82c20]",
   };
 
 type IconsProps = {

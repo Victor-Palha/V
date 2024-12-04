@@ -109,11 +109,11 @@ export function Works() {
         </button>
 
         {/* Projeto Atual */}
-        <div className="max-w-md max-h-64 p-4 flex flex-col items-center text-center">
+        <div className="max-w-md max-h-[735px] p-4 flex flex-col items-center text-center">
           <img
             src={projects[currentIndex].image}
             alt={projects[currentIndex].name}
-            className="w-full h-64 object-cover rounded-md mb-4"
+            className="w-full object-cover rounded-md mb-4"
           />
           <h3 className="text-lg sm:text-xl font-bold text-teal-400">
             {projects[currentIndex].name}
