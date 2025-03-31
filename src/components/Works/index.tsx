@@ -21,6 +21,7 @@ const projects: Project[] = [
     id: 1,
     name: "GranaFlow",
     url: "https://github.com/Victor-Palha/GranaFlow",
+    liveView: "https://granaflow.onrender.com/",
     image: project1
   },
   {
