@@ -7,6 +7,7 @@ import project3 from "../../assets/projects_2/3.png";
 import project4 from "../../assets/projects_2/4.png";
 import project5 from "../../assets/projects_2/5.png";
 import project6 from "../../assets/projects_2/6.png";
+import project7 from "../../assets/projects_2/7.png";
 
 type Project = {
   id: number;
@@ -17,6 +18,13 @@ type Project = {
 };
 
 const projects: Project[] = [
+  {
+    id: 0,
+    name: "Verene Band",
+    url: "https://verene.onrender.com/",
+    liveView: "https://verene.onrender.com/",
+    image: project7
+  },
   {
     id: 1,
     name: "GranaFlow",
