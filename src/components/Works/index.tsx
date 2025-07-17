@@ -117,7 +117,7 @@ export function Works() {
       {/* Título */}
       <Title 
         title="My Projects" 
-        subtitle="Explore my portfolio of innovative creations"
+        subtitle="Explore my works and projects that showcase my skills and creativity."
       />
 
       {/* Carrossel Container */}
