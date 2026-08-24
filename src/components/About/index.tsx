@@ -35,31 +35,31 @@ export function About() {
             <div className="pointer-events-none absolute -right-32 top-24 h-80 w-80 rounded-full bg-brand1/10 blur-3xl" />
 
             <section className="relative max-w-4xl mx-auto">
-                <Title title="About Me"/>
+                <Title title="About Me" />
 
                 <div className="reveal mt-4 rounded-3xl border border-white/5 bg-bg1/90 p-6 shadow-xl backdrop-blur-sm transition-colors duration-500 hover:border-brand1/30">
-                <p className="text-white flex-col font-ibm leading-relaxed">
-                    <span className="text-brand1 text-sm">&lt;p&gt;</span> <br />
-                    <span className="text-gradient-brand font-semibold text-3xl">Hello There!</span> <br />
-                    My name is João Victor Ferreira Palha, like you probably already know. I'm a Full-stack Developer
-                    with <span className="text-brand1">{YEARS_OF_EXPERIENCE}+ years of experience</span> and a passion for
-                    problem-solving. Since I was a kid, I've always been curious about how things work and how I could
-                    make them better. <br />
-                    <br />
-                    I graduated in Computer Science and I'm doing a post-graduation in Software Engineering. These days a
-                    big part of my work lives around <span className="text-brand1">Artificial Intelligence</span>: building
-                    LLM-powered features, RAG pipelines, agents and automations that remove the repetitive work from
-                    people's day. <br />
-                    <br />
-                    I always try to learn new things and improve my skills, and I have a motto that I always follow: <br />
-                    <br />
-                    <span className="text-brand1">
-                    Programming is not about the language, it's about the logic.
-                    </span> <br />
-                    <br />
-                    I'm always looking for new challenges and I'm sure that I can help you with your problems. <br />
-                    <span className="text-brand1 text-sm">&lt;/p&gt;</span>
-                </p>
+                    <p className="text-white flex-col font-ibm leading-relaxed">
+                        <span className="text-brand1 text-sm">&lt;p&gt;</span> <br />
+                        <span className="text-gradient-brand font-semibold text-3xl">Hello There!</span> <br />
+                        My name is João Victor Ferreira Palha, like you probably already know. I'm a Full-stack Developer
+                        with <span className="text-brand1">{YEARS_OF_EXPERIENCE}+ years of experience</span> and a passion for
+                        problem-solving. Since I was a kid, I've always been curious about how things work and how I could
+                        make them better. <br />
+                        <br />
+                        I graduated in Computer Science with MBA in Software Engineering and I'm doing a post-graduation in Software Engineering in Applied AI. These days a
+                        big part of my work lives around <span className="text-brand1">Artificial Intelligence</span>: building
+                        LLM-powered features, RAG pipelines, agents and automations that remove the repetitive work from
+                        people's day. <br />
+                        <br />
+                        I always try to learn new things and improve my skills, and I have a motto that I always follow: <br />
+                        <br />
+                        <span className="text-brand1">
+                            Programming is not about the language, it's about the logic.
+                        </span> <br />
+                        <br />
+                        I'm always looking for new challenges and I'm sure that I can help you with your problems. <br />
+                        <span className="text-brand1 text-sm">&lt;/p&gt;</span>
+                    </p>
                 </div>
 
                 <div className="mt-8 grid gap-4 md:grid-cols-3">
