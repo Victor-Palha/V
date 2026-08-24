@@ -1,14 +1,17 @@
 export const colors = {
     "bg1": "#292F36",
     "bg2": "#1A1E23",
+    "bg3": "#20252B",
     "brand1": "#12F7D6",
     "brand2": "#98FAEC",
+    "brand3": "#0A8F7C",
     "gray1": "#43454D",
 
     "js": "#E7A020",
     "ts": "#3178c6",
     "elixir": "#4e2a8e",
     "python": "#2b5b84",
+    "java": "#007396",
 
     "phoenix": "#fe6f61",
     "react": "#28A9E0",
@@ -20,4 +23,17 @@ export const colors = {
     "aws": "#ff8e05",
     "linux": "#ffb300",
     "kubernetes": "#316de6",
+
+    // AI & automation tooling
+    "openai": "#10A37F",
+    "anthropic": "#D97757",
+    "gemini": "#8E75B2",
+    "langchain": "#2E6F6A",
+    "huggingface": "#FFB300",
+    "copilot": "#6E5494",
+    "cursor": "#1F1F22",
+    "n8n": "#EA4B71",
+    "ollama": "#3A3A3A",
+    "rag": "#0A8F7C",
+    "vercel": "#151517",
 }

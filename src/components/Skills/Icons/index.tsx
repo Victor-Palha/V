@@ -1,41 +1,34 @@
 import { ReactNode } from "react";
-
-const COLORS = {
-    js: "bg-[#E7A020]",
-    ts: "bg-[#3178c6]",
-    java: "bg-[#007396]",
-    vue: "bg-[#41b883]",
-    spring: "bg-[#6db33f]",
-    elixir: "bg-[#4e2a8e]",
-    phoenix: "bg-[#fe6f61]",
-    react: "bg-[#28A9E0]",
-    fastify: "bg-[#000]",
-    nestjs: "bg-[#ea2845]",
-    graphql: "bg-[#f6009c]",
-    git: "bg-[#f14e32]",
-    docker: "bg-[#0040C7]",
-    aws: "bg-[#ff8e05]",
-    linux: "bg-[#ffb300]",
-    postgress: "bg-[#336791]",
-    mongodb: "bg-[#13aa52]",
-    redis: "bg-[#d82c20]",
-  };
+import { SKILL_COLORS } from "../../../styles/skillColors";
 
 type IconsProps = {
     title: string
-    color: keyof typeof COLORS
+    color: keyof typeof SKILL_COLORS
     icon: ReactNode
+    /** Position in the grid, used to stagger the entrance animation. */
+    index?: number
 }
 
-export function Icons({ title, icon, color }: IconsProps){
-    const bgColor = COLORS[color] || "";
+export function Icons({ title, icon, color, index = 0 }: IconsProps){
+    const bgColor = SKILL_COLORS[color] || "";
 
     return (
-        <div className="flex flex-col gap-2 items-center hover:scale-110 transition">
-        <div className={`w-14 h-14 flex rounded-full items-center justify-center ${bgColor}`}>
-            {icon}
-        </div>
-        <p className="text-white font-ibm">{title}</p>
+        <div
+            className="reveal group flex flex-col gap-2 items-center"
+            style={{ transitionDelay: `${Math.min(index, 12) * 60}ms` }}
+        >
+            <div className="relative">
+                {/* Halo that lights up on hover */}
+                <span className="absolute inset-0 rounded-full bg-brand1/40 opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-100" />
+                <div
+                    className={`relative w-14 h-14 flex rounded-full items-center justify-center ring-1 ring-white/10 shadow-lg transition-all duration-300 group-hover:-translate-y-1.5 group-hover:scale-110 group-hover:ring-brand1/70 ${bgColor}`}
+                >
+                    {icon}
+                </div>
+            </div>
+            <p className="text-white font-ibm text-xs sm:text-sm text-center transition-colors duration-300 group-hover:text-brand1">
+                {title}
+            </p>
         </div>
     )
 }

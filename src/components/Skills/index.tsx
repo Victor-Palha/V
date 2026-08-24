@@ -1,36 +1,51 @@
-import { BiLogoJavascript, BiLogoTypescript } from "react-icons/bi";
-import { SiElixir, SiPhoenixframework, SiReact, SiFastify, SiNestjs, SiGraphql, SiGit, SiDocker, SiAmazon, SiLinux, SiPostgresql, SiMongodb, SiRedis, SiSpringboot } from "react-icons/si";
 import { Title } from "../Title";
 import { Icons } from "./Icons";
-import { DiJava } from "react-icons/di";
-import { FaVuejs } from "react-icons/fa";
+import { useReveal } from "../../hooks/useReveal";
+import { skillGroups } from "../../data/skills";
 
 export function Skills() {
+  const containerRef = useReveal<HTMLDivElement>();
+
   return (
-    <div className="px-6 bg-bg1 bg-[url('/src/assets/skills.png')] pb-5">
-      <section className="relative">
+    <div
+      ref={containerRef}
+      className="relative scroll-mt-20 px-6 bg-bg1 bg-[url('/src/assets/skills.png')] pb-16 overflow-hidden"
+      id="skills"
+    >
+      {/* Scrim so the code wallpaper never fights with the content */}
+      <div className="pointer-events-none absolute inset-0 bg-bg1/90" />
+
+      {/* Ambient brand glows */}
+      <div className="pointer-events-none absolute -left-24 top-1/3 h-72 w-72 rounded-full bg-brand1/10 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-brand2/10 blur-3xl" />
+
+      <section className="relative max-w-5xl mx-auto">
         <Title title="Skills" subtitle="I am striving to never stop learning and improving" />
 
-        {/* Section for Icons */}
-        <div className="grid grid-cols-4 gap-6 mt-6">
-          <Icons title="JS" color="js" icon={<BiLogoJavascript color="white" size={30} />} />
-          <Icons title="TS" color="ts" icon={<BiLogoTypescript color="white" size={30} />} />
-          <Icons title="Elixir" color="elixir" icon={<SiElixir color="white" size={30} />} />
-          <Icons title="Java" color="java" icon={<DiJava color="white" size={30}/>}/>
-          <Icons title="Phoenix" color="phoenix" icon={<SiPhoenixframework color="white" size={30} />} />
-          <Icons title="NestJS" color="nestjs" icon={<SiNestjs color="white" size={30} />} />
-          <Icons title="Fastify" color="fastify" icon={<SiFastify color="white" size={30} />} />
-          <Icons title="Spring Boot" color="spring" icon={<SiSpringboot color="white" size={30} />} />
-          <Icons title="React" color="react" icon={<SiReact color="white" size={30} />} />
-          <Icons title="Vue" color="vue" icon={<FaVuejs color="white" size={30} />} />
-          <Icons title="GraphQL" color="graphql" icon={<SiGraphql color="white" size={30} />} />
-          <Icons title="Git" color="git" icon={<SiGit color="white" size={30} />} />
-          <Icons title="Docker" color="docker" icon={<SiDocker color="white" size={30} />} />
-          <Icons title="AWS" color="aws" icon={<SiAmazon color="white" size={30} />} />
-          <Icons title="Linux" color="linux" icon={<SiLinux color="white" size={30} />} />
-          <Icons title="Postgress" color="postgress" icon={<SiPostgresql color="white" size={30} />} />
-          <Icons title="MongoDB" color="mongodb" icon={<SiMongodb color="white" size={30} />} />
-          <Icons title="Redis" color="redis" icon={<SiRedis color="white" size={30} />} />
+        <div className="mt-12 flex flex-col gap-12">
+          {skillGroups.map((group) => (
+            <div key={group.label} className="reveal">
+              <div className="flex items-baseline gap-3 flex-wrap mb-6">
+                <h3 className="font-ibm text-xl font-bold text-brand1">
+                  <span className="text-white/40 text-sm">&lt;/&gt;</span> {group.label}
+                </h3>
+                <span className="font-ibm text-xs text-white/50">// {group.hint}</span>
+                <span className="h-px flex-1 min-w-8 bg-gradient-to-r from-brand1/50 to-transparent" />
+              </div>
+
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-y-8 gap-x-4">
+                {group.skills.map((skill, index) => (
+                  <Icons
+                    key={skill.title}
+                    index={index}
+                    title={skill.title}
+                    color={skill.color}
+                    icon={skill.icon}
+                  />
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </div>
