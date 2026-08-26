@@ -1,10 +1,9 @@
 import { Header } from "./components/Header";
 import { Card } from "./components/Card";
 import { Hello } from "./components/Hello";
-import { Over } from "./components/Over";
-import { About } from "./components/About";
-import { Skills } from "./components/Skills";
+import { Featured } from "./components/Featured";
 import { Works } from "./components/Works";
+import { Stack } from "./components/Stack";
 import { Footer } from "./components/Footer";
 import { BackToTop } from "./components/BackToTop";
 
@@ -19,16 +18,23 @@ export function App() {
 
       <div className="relative">
         <Header/>
-        <main className="mt-10 flex flex-col md:flex-row md:flex-wrap md:items-center md:justify-center gap-16 pb-20">
-          <Card/>
-          <Hello/>
-          <Over/>
+        {/* On small screens the pitch and the projects come first; the
+            business card is the last thing anyone needs to see. */}
+        <main className="mx-auto mt-10 flex max-w-7xl flex-col items-center gap-12 pb-16 lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:items-center lg:gap-8">
+          <div className="order-3 w-full max-w-sm lg:order-none lg:w-auto">
+            <Card/>
+          </div>
+          <div className="order-1 w-full lg:order-none">
+            <Hello/>
+          </div>
+          <div className="order-2 w-full max-w-sm lg:order-none lg:w-auto">
+            <Featured/>
+          </div>
         </main>
       </div>
     </div>
-    <About/>
-    <Skills/>
     <Works/>
+    <Stack/>
     <Footer/>
     <BackToTop/>
     </>

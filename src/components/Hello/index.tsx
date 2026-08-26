@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { EnvelopeSimple, GithubLogo, Notebook, Sparkle } from "@phosphor-icons/react";
+import { EnvelopeSimple, GithubLogo, Notebook } from "@phosphor-icons/react";
 import { profile, YEARS_OF_EXPERIENCE } from "../../data/profile";
 
 const TYPING_SPEED = 90;
@@ -42,7 +42,7 @@ export function Hello(){
     const typed = useTypewriter(profile.roles);
 
     return (
-        <section className="flex flex-col gap-6 items-center md:items-start animate-fade-up">
+        <section className="flex w-full flex-col items-start gap-5 animate-fade-up">
             {/* Availability badge */}
             <span className="flex items-center gap-2 rounded-full border border-brand1/30 bg-brand1/10 px-4 py-1.5 font-ibm text-xs text-brand1">
                 <span className="relative flex h-2 w-2">
@@ -52,7 +52,7 @@ export function Hello(){
                 {YEARS_OF_EXPERIENCE}+ years building software · open to new challenges
             </span>
 
-            <h2 className="text-3xl text-white text-center md:text-left">
+            <h2 className="text-2xl text-white sm:text-3xl">
                 <span className="text-brand1 text-sm font-ibm">&lt;h1&gt;</span> <br />
                 Hi, <br />
                 <span className="font-bold text-gradient-brand">I'm Victor Palha</span>, <br />
@@ -63,51 +63,45 @@ export function Hello(){
                 <span className="text-brand1 text-sm font-ibm">&lt;/h1&gt;</span>
             </h2>
 
-            <p className="text-white font-ibm text-center md:text-left">
-            <span className="text-brand1 text-sm">&lt;p&gt;</span> <br />
-                Technologies are just tools. <br />
-                What really matters is the <br />
-                <span className="text-brand1">problem-solving</span> <br />
-                and I'm here to help you with that. <br />
-            <span className="text-brand1 text-sm">&lt;/p&gt;</span>
+            {/* The whole "about me", in the two lines someone will actually read */}
+            <p className="max-w-md font-ibm text-sm leading-relaxed text-white/75">
+                <span className="text-brand1 text-xs">&lt;p&gt;</span> <br />
+                Full-stack developer with <span className="text-brand1">{YEARS_OF_EXPERIENCE}+ years</span> shipping
+                products end to end — Elixir, TypeScript and Java running in production. Lately most of my
+                work is <span className="text-brand1">LLM features, RAG pipelines and automations</span>. <br />
+                CS degree, MBA in Software Engineering, now specialising in Applied AI. <br />
+                <span className="text-brand1 text-xs">&lt;/p&gt;</span>
             </p>
 
-            {/* Highlight of what I'm doing right now */}
-            <div className="flex items-start gap-3 rounded-2xl border border-white/5 bg-bg2/70 px-4 py-3 font-ibm text-sm text-white/80 max-w-sm">
-                <Sparkle size={20} weight="fill" className="mt-0.5 shrink-0 text-brand1 animate-bob" />
-                <p>
-                    Lately I've been shipping <span className="text-brand1">AI-powered features</span> — LLM
-                    integrations, RAG pipelines and automations that cut the boring work.
-                </p>
-            </div>
-
-            <div className="flex items-center gap-4 text-brand1 font-ibm">
-                <h3 className="text-4xl font-semibold">Let's talk</h3>
-                <a
-                    href={`mailto:${profile.email}`}
-                    aria-label="Send me an email"
-                    className="group rounded-full bg-gray1 p-2 transition-all duration-300 hover:bg-brand1 hover:scale-110 hover:glow-brand-strong"
-                >
-                    <EnvelopeSimple size={30} className="text-brand1 transition-colors duration-300 group-hover:text-bg2" />
-                </a>
-                <a
-                    href={profile.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub profile"
-                    className="group rounded-full bg-gray1 p-2 transition-all duration-300 hover:bg-brand1 hover:scale-110 hover:glow-brand-strong"
-                >
-                    <GithubLogo size={30} className="text-brand1 transition-colors duration-300 group-hover:text-bg2" />
-                </a>
-                <a
-                    href={profile.blog}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Read my blog"
-                    className="group rounded-full bg-gray1 p-2 transition-all duration-300 hover:bg-brand1 hover:scale-110 hover:glow-brand-strong"
-                >
-                    <Notebook size={30} className="text-brand1 transition-colors duration-300 group-hover:text-bg2" />
-                </a>
+            <div className="flex flex-wrap items-center gap-4 text-brand1 font-ibm">
+                <h3 className="whitespace-nowrap text-3xl font-semibold">Let's talk</h3>
+                <div className="flex items-center gap-4">
+                    <a
+                        href={`mailto:${profile.email}`}
+                        aria-label="Send me an email"
+                        className="group rounded-full bg-gray1 p-2 transition-all duration-300 hover:bg-brand1 hover:scale-110 hover:glow-brand-strong"
+                    >
+                        <EnvelopeSimple size={30} className="text-brand1 transition-colors duration-300 group-hover:text-bg2" />
+                    </a>
+                    <a
+                        href={profile.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub profile"
+                        className="group rounded-full bg-gray1 p-2 transition-all duration-300 hover:bg-brand1 hover:scale-110 hover:glow-brand-strong"
+                    >
+                        <GithubLogo size={30} className="text-brand1 transition-colors duration-300 group-hover:text-bg2" />
+                    </a>
+                    <a
+                        href={profile.blog}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Read my blog"
+                        className="group rounded-full bg-gray1 p-2 transition-all duration-300 hover:bg-brand1 hover:scale-110 hover:glow-brand-strong"
+                    >
+                        <Notebook size={30} className="text-brand1 transition-colors duration-300 group-hover:text-bg2" />
+                    </a>
+                </div>
             </div>
         </section>
     )

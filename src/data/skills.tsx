@@ -89,10 +89,3 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
 ];
-
-const countOf = (label: string) => skillGroups.find((group) => group.label === label)?.skills.length ?? 0;
-
-export const skillsCount = skillGroups.reduce((total, group) => total + group.skills.length, 0);
-export const aiSkillsCount = countOf("AI & Automation");
-export const languagesCount = countOf("Languages");
-export const toolsCount = skillsCount - languagesCount;

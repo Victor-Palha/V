@@ -1,238 +1,196 @@
-import { FaArrowLeft, FaArrowRight, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import { Title } from "../Title";
-import { useCallback, useEffect, useMemo, useState } from "react";
-import project1 from "../../assets/projects_2/1.png";
-import project2 from "../../assets/projects_2/2.png";
-import project3 from "../../assets/projects_2/3.png";
-import project4 from "../../assets/projects_2/4.png";
-import project5 from "../../assets/projects_2/5.png";
-import project6 from "../../assets/projects_2/6.png";
-import project7 from "../../assets/projects_2/7.png";
+import { ArrowUpRight, Check, GithubLogo } from "@phosphor-icons/react";
+import { TechChips } from "../TechChip";
+import { useReveal } from "../../hooks/useReveal";
+import { featuredProjects, otherProjects, STATUS_LABEL, type Project } from "../../data/projects";
 
-type Project = {
-  id: number;
-  name: string;
-  url: string;
-  liveView?: string;
-  image: string;
-  tags?: string[];
-};
+function StatusBadge({ project }: { project: Project }) {
+    return (
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-brand1/30 bg-brand1/10 px-2.5 py-1 font-ibm text-[11px] text-brand1">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand1" />
+            {STATUS_LABEL[project.status]}
+        </span>
+    );
+}
 
-const projects: Project[] = [
-  {
-    id: 0,
-    name: "Verene Band",
-    url: "https://verene.onrender.com/",
-    liveView: "https://verene.onrender.com/",
-    image: project7,
-    tags: ["React", "TypeScript"]
-  },
-  {
-    id: 1,
-    name: "GranaFlow",
-    url: "https://github.com/Victor-Palha/GranaFlow",
-    liveView: "https://granaflow.onrender.com/",
-    image: project1,
-    tags: ["Full-stack", "Finance"]
-  },
-  {
-    id: 2,
-    name: "Ash Chat",
-    url: "https://github.com/Victor-Palha/AshChat",
-    image: project2,
-    tags: ["Elixir", "Realtime"]
-  },
-  {
-    id: 3,
-    name: "Ash Drive",
-    url: "https://github.com/Victor-Palha/ash-drive",
-    image: project3,
-    tags: ["Storage", "API"]
-  },
-  {
-    id: 4,
-    name: "Link Saver",
-    url: "https://github.com/Victor-Palha/linkSaverNative",
-    image: project4,
-    tags: ["React Native"]
-  },
-  {
-    id: 5,
-    name: "Medieval Tavern",
-    liveView: "https://medieval-tavern.onrender.com/",
-    url: "https://github.com/Victor-Palha/Medieval-Tavern",
-    image: project5,
-    tags: ["Game", "Web"]
-  },
-  {
-    id: 6,
-    name: "YT-AI",
-    url: "https://github.com/Victor-Palha/Youtube-Transcription-AI",
-    image: project6,
-    tags: ["AI", "LLM", "Transcription"]
-  }
-];
-
-const PARTICLE_COUNT = 24;
-
-export function Works() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-
-  // Generated once so the particles keep their position across re-renders
-  const particles = useMemo(
-    () =>
-      Array.from({ length: PARTICLE_COUNT }, () => ({
-        size: Math.random() * 10 + 2,
-        top: Math.random() * 100,
-        left: Math.random() * 100,
-        duration: Math.random() * 10 + 10,
-        delay: Math.random() * 5,
-      })),
-    []
-  );
-
-  const handleNext = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % projects.length);
-  }, []);
-
-  const handlePrev = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
-  }, []);
-
-  // Auto-rotate every 5 seconds when not hovered
-  useEffect(() => {
-    if (isHovered) return;
-    const interval = setInterval(handleNext, 5000);
-    return () => clearInterval(interval);
-  }, [isHovered, handleNext]);
-
-  const goToProject = (index: number) => {
-    setCurrentIndex(index);
-  };
-
-  const current = projects[currentIndex];
-
-  return (
-    <section
-      className="relative scroll-mt-20 py-20 px-4 sm:px-6 text-center bg-gradient-to-b from-bg2 to-bg1 overflow-hidden"
-      id="works"
-    >
-      {/* Background particles effect */}
-      <div className="absolute inset-0 overflow-hidden opacity-20">
-        {particles.map((particle, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-brand1"
-            style={{
-              width: `${particle.size}px`,
-              height: `${particle.size}px`,
-              top: `${particle.top}%`,
-              left: `${particle.left}%`,
-              animation: `float ${particle.duration}s linear infinite`,
-              animationDelay: `${particle.delay}s`
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Título */}
-      <Title
-        title="My Projects"
-        subtitle="Explore my works and projects that showcase my skills and creativity."
-      />
-
-      {/* Carrossel Container */}
-      <div
-        className="relative max-w-6xl mx-auto mt-16"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        {/* Botão Esquerdo */}
-        <button
-          onClick={handlePrev}
-          aria-label="Previous project"
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center bg-brand1/20 backdrop-blur-sm rounded-full hover:bg-brand1/30 transition-all duration-300 shadow-lg hover:scale-110 hover:glow-brand"
-        >
-          <FaArrowLeft size={18} className="text-brand1" />
-        </button>
-
-        {/* Projeto Atual */}
-        <div className="relative overflow-hidden rounded-2xl shadow-2xl group ring-1 ring-white/10">
-          {/* Project Image with gradient overlay */}
-          <div className="relative md:h-[42rem] overflow-hidden">
-            <img
-              key={current.id}
-              src={current.image}
-              alt={current.name}
-              className="w-full h-full object-cover animate-fade-in transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
-          </div>
-
-          {/* Project Info */}
-          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-left">
-            <div key={current.id} className="animate-fade-up transform transition-all duration-500 translate-y-0 group-hover:-translate-y-2">
-              {current.tags && (
-                <div className="mb-3 flex flex-wrap gap-2">
-                  {current.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-brand1/40 bg-brand1/10 px-3 py-1 font-ibm text-xs text-brand1"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                {current.name}
-              </h3>
-              <div className="flex gap-4 mt-4">
-                {current.liveView && (
-                  <a
-                    href={current.liveView}
+function ProjectLinks({ project }: { project: Project }) {
+    return (
+        <div className="flex flex-wrap items-center gap-3">
+            {project.live && (
+                <a
+                    href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-brand1 text-bg2 font-semibold py-3 px-6 rounded-full hover:bg-brand2 transition-all duration-300 hover:scale-105 hover:glow-brand-strong"
-                  >
-                    <FaExternalLinkAlt /> View Live
-                  </a>
-                )}
-                <a
-                  href={current.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-bg1 text-white py-3 px-6 rounded-full border border-white/10 hover:border-brand1/60 hover:text-brand1 transition-all duration-300 hover:scale-105"
+                    className="inline-flex items-center gap-2 rounded-full bg-brand1 px-5 py-2.5 font-ibm text-sm font-semibold text-bg2 transition-all duration-300 hover:bg-brand2 hover:glow-brand-strong"
                 >
-                  <FaGithub /> Code
+                    Open live <ArrowUpRight size={16} weight="bold" />
                 </a>
-              </div>
-            </div>
-          </div>
+            )}
+            {project.repo && (
+                <a
+                    href={project.repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-2.5 font-ibm text-sm text-white/80 transition-all duration-300 hover:border-brand1/60 hover:text-brand1"
+                >
+                    <GithubLogo size={16} /> Read the code
+                </a>
+            )}
         </div>
+    );
+}
 
-        {/* Botão Direito */}
-        <button
-          onClick={handleNext}
-          aria-label="Next project"
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center bg-brand1/20 backdrop-blur-sm rounded-full hover:bg-brand1/30 transition-all duration-300 shadow-lg hover:scale-110 hover:glow-brand"
+/** One of the three headline projects: screenshot, what it does, what I built with what. */
+function FeaturedProject({ project, index }: { project: Project; index: number }) {
+    const imageFirst = index % 2 === 0;
+
+    return (
+        <article
+            id={`project-${project.id}`}
+            className="reveal scroll-mt-28 grid items-center gap-8 md:grid-cols-2 md:gap-12"
         >
-          <FaArrowRight size={18} className="text-brand1" />
-        </button>
+            <div className={`relative ${imageFirst ? "md:order-1" : "md:order-2"}`}>
+                <div className="overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-2xl">
+                    <img
+                        src={project.image}
+                        alt={`${project.name} interface`}
+                        loading="lazy"
+                        className="aspect-[4/3] w-full object-cover object-center transition-transform duration-700 hover:scale-[1.03]"
+                    />
+                </div>
+                <span className="pointer-events-none absolute -inset-4 -z-10 rounded-3xl bg-brand1/5 blur-2xl" />
+            </div>
 
-        {/* Indicators */}
-        <div className="flex justify-center mt-8 gap-2">
-          {projects.map((project, index) => (
-            <button
-              key={project.id}
-              onClick={() => goToProject(index)}
-              className={`h-3 rounded-full transition-all duration-300 ${currentIndex === index ? 'bg-brand1 w-6 glow-brand' : 'w-3 bg-gray1 hover:bg-brand1/50'}`}
-              aria-label={`Go to project ${index + 1}`}
-            />
-          ))}
+            <div className={`flex flex-col gap-5 text-left ${imageFirst ? "md:order-2" : "md:order-1"}`}>
+                <div className="flex flex-wrap items-center gap-3">
+                    <span className="font-ibm text-sm text-brand1/60">
+                        {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="text-2xl font-bold text-white md:text-3xl">{project.name}</h3>
+                    <StatusBadge project={project} />
+                </div>
+
+                <p className="font-ibm text-base leading-relaxed text-brand2">{project.tagline}</p>
+
+                <div className="flex flex-col gap-3">
+                    {project.description.map((paragraph) => (
+                        <p key={paragraph} className="font-ibm text-sm leading-relaxed text-white/70">
+                            {paragraph}
+                        </p>
+                    ))}
+                </div>
+
+                <ul className="flex flex-col gap-2 border-l border-brand1/20 pl-4">
+                    {project.highlights.map((highlight) => (
+                        <li key={highlight} className="flex gap-2.5 font-ibm text-sm leading-relaxed text-white/80">
+                            <Check size={14} weight="bold" className="mt-1 shrink-0 text-brand1" />
+                            <span>{highlight}</span>
+                        </li>
+                    ))}
+                </ul>
+
+                <TechChips stack={project.stack} />
+                <ProjectLinks project={project} />
+            </div>
+        </article>
+    );
+}
+
+/** The rest of the shelf: enough to judge without another full-width block. */
+function CompactProject({ project }: { project: Project }) {
+    return (
+        <article
+            id={`project-${project.id}`}
+            className="reveal group scroll-mt-28 flex flex-col gap-4 rounded-2xl border border-white/5 bg-bg1/50 p-5 text-left transition-all duration-300 hover:-translate-y-1 hover:border-brand1/30"
+        >
+            <div className="flex items-start gap-4">
+                <img
+                    src={project.image}
+                    alt={`${project.name} interface`}
+                    loading="lazy"
+                    className="h-16 w-20 shrink-0 rounded-lg object-cover object-center ring-1 ring-white/10"
+                />
+                <div className="flex flex-col gap-1.5">
+                    <div className="flex flex-wrap items-center gap-2">
+                        <h4 className="font-bold text-white">{project.name}</h4>
+                        <StatusBadge project={project} />
+                    </div>
+                    <p className="font-ibm text-sm leading-snug text-white/70">{project.tagline}</p>
+                </div>
+            </div>
+
+            <p className="font-ibm text-sm leading-relaxed text-white/55">{project.highlights[0]}</p>
+
+            <div className="mt-auto flex flex-col gap-3">
+                <TechChips stack={project.stack} dense limit={5} />
+                <div className="flex items-center gap-4 font-ibm text-sm">
+                    {project.live && (
+                        <a
+                            href={project.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-brand1 transition-colors hover:text-brand2"
+                        >
+                            Open live <ArrowUpRight size={14} weight="bold" />
+                        </a>
+                    )}
+                    {project.repo && (
+                        <a
+                            href={project.repo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-white/60 transition-colors hover:text-brand1"
+                        >
+                            <GithubLogo size={14} /> Code
+                        </a>
+                    )}
+                </div>
+            </div>
+        </article>
+    );
+}
+
+export function Works() {
+    const containerRef = useReveal<HTMLDivElement>();
+
+    return (
+        <div
+            ref={containerRef}
+            className="relative scroll-mt-20 overflow-hidden bg-bg2 px-6 py-20"
+            id="works"
+        >
+            <div className="pointer-events-none absolute inset-0 grid-pattern opacity-30" />
+            <div className="pointer-events-none absolute -left-32 top-1/4 h-80 w-80 rounded-full bg-brand1/10 blur-3xl" />
+            <div className="pointer-events-none absolute -right-32 bottom-1/4 h-80 w-80 rounded-full bg-brand2/5 blur-3xl" />
+
+            <section className="relative mx-auto max-w-6xl">
+                <header className="flex flex-col gap-3">
+                    <span className="font-ibm text-sm text-brand1">// what I actually built</span>
+                    <h2 className="text-3xl font-bold text-gradient-brand md:text-4xl">Projects</h2>
+                    <p className="max-w-2xl font-ibm text-sm leading-relaxed text-white/60">
+                        What each one does, how it was put together and which tools did the work — no
+                        need to open anything to find out.
+                    </p>
+                </header>
+
+                <div className="mt-16 flex flex-col gap-20 md:gap-28">
+                    {featuredProjects.map((project, index) => (
+                        <FeaturedProject key={project.id} project={project} index={index} />
+                    ))}
+                </div>
+
+                <div className="mt-24">
+                    <div className="mb-8 flex items-baseline gap-3">
+                        <h3 className="font-ibm text-lg font-bold text-brand1">Also built</h3>
+                        <span className="h-px flex-1 bg-gradient-to-r from-brand1/40 to-transparent" />
+                    </div>
+
+                    <div className="grid gap-5 sm:grid-cols-2">
+                        {otherProjects.map((project) => (
+                            <CompactProject key={project.id} project={project} />
+                        ))}
+                    </div>
+                </div>
+            </section>
         </div>
-      </div>
-    </section>
-  );
+    );
 }

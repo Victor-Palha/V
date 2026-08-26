@@ -10,9 +10,6 @@ export default {
     extend: {
       colors: colors,
       fontFamily: fonts,
-      backgroundImage: {
-        "about": "url('/src/assets/about.png')",
-      }
     },
   },
   plugins: [],

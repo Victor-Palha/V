@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { List, X } from "@phosphor-icons/react";
 import { profile } from "../../data/profile";
 
-const links = [
-    { label: "About", href: "#about" },
-    { label: "Skills", href: "#skills" },
+type NavLink = { label: string; href: string; external?: boolean };
+
+const links: NavLink[] = [
     { label: "Projects", href: "#works" },
-    // { label: "Blog", href: profile.blog, external: true },
+    { label: "Stack", href: "#stack" },
+    { label: "Blog", href: profile.blog, external: true },
 ];
 
 export function Header() {
@@ -40,7 +41,7 @@ export function Header() {
                         <a
                             key={link.label}
                             href={link.href}
-                            // {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                            {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                             className="link-underline text-sm transition-colors duration-300 hover:text-brand1"
                         >
                             {link.label}
@@ -75,7 +76,7 @@ export function Header() {
                         <a
                             key={link.label}
                             href={link.href}
-                            // {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                            {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                             onClick={() => setIsOpen(false)}
                             className="text-sm text-white/80 transition-colors duration-300 hover:text-brand1"
                         >

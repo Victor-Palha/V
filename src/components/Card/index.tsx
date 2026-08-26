@@ -3,7 +3,7 @@ import { profile, YEARS_OF_EXPERIENCE } from "../../data/profile";
 
 export function Card() {
     return (
-      <div className="group w-full max-w-sm mx-auto rounded-xl p-[2px] shadow-lg font-ibm brand-ring transition-transform duration-500 hover:-translate-y-2">
+      <div className="group w-full max-w-[20rem] mx-auto rounded-xl p-[2px] shadow-lg font-ibm brand-ring transition-transform duration-500 hover:-translate-y-2">
         {/* Black section */}
         <div className="relative bg-bg1 rounded-lg overflow-hidden shadow-inner">
           {/* Shine sweeping across the card on hover */}
