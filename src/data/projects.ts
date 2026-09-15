@@ -1,4 +1,5 @@
 import type { TechKey } from "./tech";
+import riviaHubImage from "../assets/projects_2/8.png";
 import ashChatImage from "../assets/projects_2/2.png";
 import ytAiImage from "../assets/projects_2/6.png";
 import granaFlowImage from "../assets/projects_2/1.png";
@@ -36,6 +37,25 @@ export const STATUS_LABEL: Record<ProjectStatus, string> = {
  * ones a recruiter with thirty seconds should see.
  */
 export const projects: Project[] = [
+    {
+        id: "rivia-hub",
+        name: "Rivia-Hub",
+        tagline: "A Dynamic Island for the Mac: files, media controls and an AI that answers from your own documents, all living in the notch.",
+        status: "live",
+        image: riviaHubImage,
+        live: "https://rivia-hub.tech/",
+        description: [
+            "A floating panel that lives in the Mac's notch. Drop files into a workspace, jump to pinned apps, watch what's playing, and — when there's a question — ask it and get an answer grounded in the documents you actually put there, with the source cited.",
+            "Native macOS client in Swift/SwiftUI on top of a NestJS API doing the retrieval and generation. Currently in BETA, running as my own daily driver while it gets built out.",
+        ],
+        highlights: [
+            "Swift/SwiftUI/AppKit client: a custom NSPanel with its own hit-testing, Liquid Glass styling and local JSON persistence, so workspaces, files and chat history survive a restart.",
+            "NestJS API in a DDD/Clean Architecture, PostgreSQL with pgvector for similarity search, and local Whisper transcription — no external service touches the raw files.",
+            "RAG pipeline: each document is chunked and embedded locally (Hugging Face Transformers), the closest chunks are retrieved from pgvector by cosine similarity, and only that context — plus the question — is sent to a free-tier model on OpenRouter to produce a cited answer.",
+            "Built as a direct, hands-on outcome of a postgraduate degree in Applied AI Engineering — the RAG pipeline is the coursework put into something I actually use every day.",
+        ],
+        stack: ["swift", "nestjs", "ts", "postgres", "transformers", "openrouter", "docker"],
+    },
     {
         id: "ashchat",
         name: "AshChat",

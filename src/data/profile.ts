@@ -7,7 +7,7 @@ export const profile = {
     email: "jv.palha@gmail.com",
     location: "Brazil",
     github: "https://github.com/victor-palha",
-    blog: "https://victor-palha.github.io/",
+    linkedin: "https://www.linkedin.com/in/victor-palha/",
     roles: [
         "Full-stack Developer",
         "AI Engineer",

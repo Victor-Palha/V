@@ -3,10 +3,10 @@ import {
   SiElixir, SiPhoenixframework, SiReact, SiTypescript, SiJavascript, SiPython,
   SiNodedotjs, SiExpress, SiSpringboot, SiPostgresql, SiMongodb, SiRabbitmq,
   SiKong, SiDocker, SiVuedotjs, SiExpo, SiTailwindcss, SiVite, SiHuggingface,
-  SiFfmpeg, SiRender, SiCloudflare, SiJsonwebtokens, SiGoogle,
+  SiFfmpeg, SiRender, SiCloudflare, SiJsonwebtokens, SiGoogle, SiSwift, SiNestjs,
 } from "react-icons/si";
 import { DiJava } from "react-icons/di";
-import { TbBrandReactNative, TbPlugConnected, TbRocket } from "react-icons/tb";
+import { TbBrandReactNative, TbPlugConnected, TbRocket, TbRobot } from "react-icons/tb";
 
 export type Tech = {
   label: string;
@@ -50,6 +50,9 @@ export const TECH = {
   r2: { label: "R2 / S3", color: "#F6821F", icon: <SiCloudflare {...props} /> },
   render: { label: "Render", color: "#B0B0B0", icon: <SiRender {...props} /> },
   fly: { label: "Fly.io", color: "#9B7BD4", icon: <TbRocket {...props} /> },
+  swift: { label: "Swift", color: "#FA7343", icon: <SiSwift {...props} /> },
+  nestjs: { label: "NestJS", color: "#E0234E", icon: <SiNestjs {...props} /> },
+  openrouter: { label: "OpenRouter", color: "#8C7CFF", icon: <TbRobot {...props} /> },
 } as const satisfies Record<string, Tech>;
 
 export type TechKey = keyof typeof TECH;

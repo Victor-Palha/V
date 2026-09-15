@@ -1,9 +1,9 @@
-import { EnvelopeSimple, GithubLogo, Notebook } from "@phosphor-icons/react";
+import { EnvelopeSimple, GithubLogo, LinkedinLogo } from "@phosphor-icons/react";
 import { profile } from "../../data/profile";
 
 const socials = [
     { label: "GitHub", href: profile.github, icon: <GithubLogo size={20} /> },
-    { label: "Blog", href: profile.blog, icon: <Notebook size={20} /> },
+    { label: "LinkedIn", href: profile.linkedin, icon: <LinkedinLogo size={20} /> },
     { label: "Email", href: `mailto:${profile.email}`, icon: <EnvelopeSimple size={20} /> },
 ];
 

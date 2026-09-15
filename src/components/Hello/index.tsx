@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { EnvelopeSimple, GithubLogo, Notebook } from "@phosphor-icons/react";
+import { EnvelopeSimple, GithubLogo, LinkedinLogo } from "@phosphor-icons/react";
 import { profile, YEARS_OF_EXPERIENCE } from "../../data/profile";
 
 const TYPING_SPEED = 90;
@@ -93,13 +93,13 @@ export function Hello(){
                         <GithubLogo size={30} className="text-brand1 transition-colors duration-300 group-hover:text-bg2" />
                     </a>
                     <a
-                        href={profile.blog}
+                        href={profile.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="Read my blog"
+                        aria-label="LinkedIn profile"
                         className="group rounded-full bg-gray1 p-2 transition-all duration-300 hover:bg-brand1 hover:scale-110 hover:glow-brand-strong"
                     >
-                        <Notebook size={30} className="text-brand1 transition-colors duration-300 group-hover:text-bg2" />
+                        <LinkedinLogo size={30} className="text-brand1 transition-colors duration-300 group-hover:text-bg2" />
                     </a>
                 </div>
             </div>

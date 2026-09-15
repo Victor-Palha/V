@@ -7,7 +7,7 @@ type NavLink = { label: string; href: string; external?: boolean };
 const links: NavLink[] = [
     { label: "Projects", href: "#works" },
     { label: "Stack", href: "#stack" },
-    { label: "Blog", href: profile.blog, external: true },
+    { label: "LinkedIn", href: profile.linkedin, external: true },
 ];
 
 export function Header() {
