@@ -4,9 +4,10 @@ import {
   SiNodedotjs, SiExpress, SiSpringboot, SiPostgresql, SiMongodb, SiRabbitmq,
   SiKong, SiDocker, SiVuedotjs, SiExpo, SiTailwindcss, SiVite, SiHuggingface,
   SiFfmpeg, SiRender, SiCloudflare, SiJsonwebtokens, SiGoogle, SiSwift, SiNestjs,
+  SiStripe,
 } from "react-icons/si";
 import { DiJava } from "react-icons/di";
-import { TbBrandReactNative, TbPlugConnected, TbRocket, TbRobot } from "react-icons/tb";
+import { TbBrandReactNative, TbPlug, TbPlugConnected, TbRocket, TbRobot, TbTopologyStar3 } from "react-icons/tb";
 
 export type Tech = {
   label: string;
@@ -53,6 +54,9 @@ export const TECH = {
   swift: { label: "Swift", color: "#FA7343", icon: <SiSwift {...props} /> },
   nestjs: { label: "NestJS", color: "#E0234E", icon: <SiNestjs {...props} /> },
   openrouter: { label: "OpenRouter", color: "#8C7CFF", icon: <TbRobot {...props} /> },
+  mcp: { label: "MCP", color: "#D4A27F", icon: <TbPlug {...props} /> },
+  stripe: { label: "Stripe", color: "#7A73FF", icon: <SiStripe {...props} /> },
+  cytoscape: { label: "Cytoscape.js", color: "#F7A64A", icon: <TbTopologyStar3 {...props} /> },
 } as const satisfies Record<string, Tech>;
 
 export type TechKey = keyof typeof TECH;

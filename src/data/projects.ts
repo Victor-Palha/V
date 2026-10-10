@@ -1,5 +1,6 @@
 import type { TechKey } from "./tech";
 import riviaHubImage from "../assets/projects_2/8.png";
+import viewOfficeImage from "../assets/projects_2/9.png";
 import ashChatImage from "../assets/projects_2/2.png";
 import ytAiImage from "../assets/projects_2/6.png";
 import granaFlowImage from "../assets/projects_2/1.png";
@@ -37,6 +38,26 @@ export const STATUS_LABEL: Record<ProjectStatus, string> = {
  * ones a recruiter with thirty seconds should see.
  */
 export const projects: Project[] = [
+    {
+        id: "view-office",
+        name: "View Office",
+        tagline: "Project management SaaS that AI agents understand too: the same board, docs and permissions for people in the browser and for Claude or Cursor over MCP.",
+        status: "live",
+        image: viewOfficeImage,
+        live: "https://vo.rivia-hub.tech/",
+        description: [
+            "Kanban and sprints, architecture decisions (ADRs), business rules and team secrets in one place, all tied together by a graph of typed links — a task knows which decision it implements and which rule documents it.",
+            "People work in the browser; Claude, Cursor and other agents connect over MCP and work on the same board, with the same permissions. Companies sign up on their own and pay per user and per project.",
+        ],
+        highlights: [
+            "MCP server with 47 tools covering the kanban, documentation and graph — each agent connects with a personal API token and can do exactly what the person who issued it can, nothing more.",
+            "Before touching a task, an agent can read its neighbourhood in the graph: the decisions, rules and related work linked to it, each link with the context of how the two interact.",
+            "Real-time collaboration with per-team, per-module permissions, plus an interactive visual graph of how tasks, decisions and domains connect.",
+            "Team secrets encrypted with AES-256-GCM, with an audit trail of who revealed, copied or changed each one.",
+            "Self-service plans with a free trial and Stripe billing that scales per user and per project.",
+        ],
+        stack: ["elixir", "phoenix", "postgres", "mcp", "stripe", "cytoscape", "tailwind"],
+    },
     {
         id: "rivia-hub",
         name: "Rivia-Hub",
